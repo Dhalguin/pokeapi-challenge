@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useEffect } from 'react'
 import { usePokemon } from '@/contexts/pokeContext'
 import Link from 'next/link'
@@ -7,13 +8,14 @@ import { bgColorByPokeType } from '@/utils/pokeCard'
 const PokeCard: React.FC<PokeCardType> = ({ pokemon }) => {
   const { setPokemon } = usePokemon()
 
-  const pokeStoraged: string[] = JSON.parse(localStorage.getItem('pokemons') ?? '')
+  const pokeStoraged: string[] = localStorage.getItem('pokemons')
+    ? JSON.parse(localStorage.getItem('pokemons') ?? '')
+    : []
 
   const redirectToDetail = () => {
     setPokemon(pokemon)
 
-    const pokeData: string[] = JSON.parse(localStorage.getItem('pokemons') ?? '')
-    const newPoke = pokeData.concat(String(pokemon.id))
+    const newPoke = pokeStoraged.concat(String(pokemon.id))
 
     localStorage.setItem('pokemons', JSON.stringify(newPoke))
   }
