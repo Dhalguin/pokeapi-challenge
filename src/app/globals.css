@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply text-gray-900 bg-gray-200;
+}
+
+.poke-card {
+  @apply rounded-md min-h-48 py-3 md:basis-1/5 w-full;
+}
+
+/*  <!------------- CARD LIST ------------- !>  */
+
+.poke-card:hover {
+  box-shadow: 1px 1px 10px gray;
+}
+
+/*  <!------------- PAGINATION ------------- !>  */
+
+.ctn-pagination {
+  @apply flex rounded-md py-2 px-6 mt-5 mb-2 bg-white min-w-[30%] w-full md:w-fit justify-center;
+  box-shadow: 1px 1px 5px gray;
+}
+
+.btn-pagination {
+  @apply flex items-center border-solid border-gray-300 p-2 rounded-md mx-1 min-w-10 justify-center cursor-pointer;
+  border-width: 1px;
+}
+
+.btn-pagination.disabled {
+  @apply text-gray-500;
+}
+
+.btn-pagination.actived {
+  @apply bg-black text-gray-100;
+}
+
+/* <!------------- DETAIL PAGE ------------- !>   */
+
+.ctn-card-detail {
+  @apply flex flex-col items-center bg-white p-8 pb-12 rounded-md min-w-[50%] gap-5 justify-between;
+  min-height: 50vh;
+  box-shadow: 1px 1px 10px gray;
+}
